@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th ="http://www.thymeleaf.org"
+ th:replace="~{layout ::base(~{::title}, ~{::body})}">
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
@@ -111,6 +111,41 @@
 			[[*{id}]] : [[*{name}]]
 		</p>
 	</div>
+
+	<!-- 17：ユーティリティオブジェクト（数値） -->
+
+	<div th:with="x=1000000, y=123456.789">
+		整数のフォーマット:<span th:text="${#numbers.formatInteger(x, 3, 'COMMA')}"></span>
+		<br>
+		浮動小数点のフォーマット:<span th:text="${#numbers.formatDecimal(y, 3, 'COMMA',2,'POINT')}"></span>
+	</div>
+
+	<!-- 17：ユーティリティオブジェクト（日時） -->
+	<div th:with="today=${#dates.createNow()}">
+		yyyy/mm/dd形式:<span th:text="${#dates.format(today, 'yyyy/MM/dd')}"></span><br />
+		yyyy年mm月dd日形式:<span th:text="${#dates.format(today, 'yyyy年MM月dd日')}"></span><br />
+		yyyy年:<span th:text="${#dates.year(today)}"></span><br />
+		MM月:<span th:text="${#dates.month(today)}"></span><br />
+		dd日:<span th:text="${#dates.day(today)}"></span><br />
+		曜日:<span th:text="${#dates.dayOfWeek(today)}"></span><br />
+	</div>
+
+	<!-- 17：ユーティリティオブジェクト（文字列） -->
+
+	<br>
+	<div th:with="str1='abcdef'">
+		大文字変換:<span th:text="${#strings.toUpperCase(str1)}"></span><br>
+		空文字判定:<span th:text="${#strings.isEmpty(str1)}"></span><br>
+		長さ:<span th:text="${#strings.length(str1)}"></span>
+	</div>
+
+
+	<!-- 18：フラグメントを埋め込む -->
+	<div id="one" th:insert="common::header"></div>
+
+	<h1>上下にFragmentを埋め込む</h1>
+	<div id="two" th:replace="common::footer"></div>
+
 
 
 </body>
