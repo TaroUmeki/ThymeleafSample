@@ -39,7 +39,44 @@
 	<!-- 07：条件演算子 -->
 	<p th:text="${name}=='太郎'? '太郎さんです！': '太郎さんではありません'"></p>
 
+	<!-- 08：条件分岐（true） -->
+	<div th:if="${name} == '太郎'">
+		<p>太郎さんです!</p>
+	</div>
 
+	<!-- 08：条件分岐（true） -->
+	<th:block th:if="${name} == '太郎'">
+		<p>太郎さんです!</p>
+	</th:block>
+
+
+	<!-- 09：条件分岐（false） -->
+	<div th:unless="${name} == '花子'">
+		<p>花子さんではありません。</p>
+	</div>
+
+
+	<hr>
+	<!-- 10：switch -->
+	<div th:switch="${name}">
+		<p th:case="太郎" th:text="|${name}です！|"></p>
+		<p th:case="次郎" th:text="|${name}です！|"></p>
+		<p th:case="花子" th:text="|${name}です！|"></p>
+		<p th:case="*">名簿にありません</p>
+
+	</div>
+
+	<!-- 11：参照（データをまとめたオブジェクト） -->
+	.でアクセス：<span th:text="${mb.id}">ID</span>-<span th:text="${mb.name}">名前</span>
+	 <br>
+	[]でアクセス: <span th:text="${mb['id']}">ID</span>-<span th:text="${mb['name']}">名前</span>
+
+	<!-- 12：参照（th:object） -->
+	<th:block th:object="${mb}">
+		.でアクセス<span th:></span>
+		
+		
+	</th:block>
 
 
 
