@@ -21,11 +21,28 @@
 	<!-- 05：ローカル変数 -->
 	<div th:with="a=1,b=2">
 		<span th:text="|${a}+${b}=${a+b}|"></span>
-	
-		
+
+
 	</div>
-	
-	
-	 </body>
+	<!-- 06：比較と等価 -->
+	<span th:text="1 >10"></span>
+	<span th:text="1 < 10"></span>
+	<span th:text="1 >= 10"></span>
+	<span th:text="1 <= 10"></span>
+	<span th:text="1 == 10"></span>
+	<span th:text="1 != 10"></span>
+
+	<br>
+	<span th:text="太郎 == 太郎"></span>
+	<span th:text="太郎 != 太郎"></span>
+
+	<!-- 07：条件演算子 -->
+	<p th:text="${name}=='太郎'? '太郎さんです！': '太郎さんではありません'"></p>
+
+
+
+
+
+</body>
 
 </html>
