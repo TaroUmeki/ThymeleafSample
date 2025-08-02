@@ -71,10 +71,11 @@
 	 <br>
 	[]でアクセス: <span th:text="${mb['id']}">ID</span>-<span th:text="${mb['name']}">名前</span>
 
-	<!-- 12：参照（th:object） -->
+<!--	 12：参照（th:object） -->
 	<th:block th:object="${mb}">
-		.でアクセス<span th:></span>
-		
+		.でアクセス<span th:text="*{id}">ID</span>-<span th:text="*{name}">名前</span>
+		<br>
+	[]でアクセス:<span th:text="*{['id']}">ID</span>-<span th:text="*{['name']}">名前</span>
 		
 	</th:block>
 
