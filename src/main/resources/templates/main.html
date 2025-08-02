@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<!-- 01：直接文字を埋め込む -->
+	<h1 th:text="'hello world'">表示する部分</h1>
+	<!-- 02：インライン処理 -->
+	<h1>こんにちは！[[${name}]]さん</h1>
+	
+	<!-- 03：値結合 -->
+	<h1 th:text="'明日は、'+'晴れ'+'です。'">表示する部分</h1>
+
+
+
+</body>
+
+</html>
